@@ -1,16 +1,9 @@
-import Authorization from "./Authorization/Authorization";
-import Album from "./components/Albums/Album";
-import Artists from "./components/Artists/Artists";
+import React from 'react'
 
 function App() {
-  
   return (
-    <div >
-    <Authorization >
-      <Artists />
-    </Authorization>
-    </div>
-  );
+    <div>App</div>
+  )
 }
 
-export default App;
+export default App
