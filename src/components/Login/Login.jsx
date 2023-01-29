@@ -15,9 +15,20 @@ export const Login = () => {
       " user-read-playback-position",
       "user-top-read",
       "user-read-recently-played",
-
+      " playlist-read-private",
+      "playlist-read-collaborative",
+      "playlist-modify-private",
+      "playlist-modify-public",
+      "user-library-modify",
+      "user-library-read",
+      "app-remote-control",
+      "streaming",
+      "user-follow-modify",
+      "user-follow-read",
     ];
-    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(" ")}&response_type=token&show_dialog=true`;
+    window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+      " "
+    )}&response_type=token&show_dialog=true`;
   };
   return (
     <div className="login-page">
