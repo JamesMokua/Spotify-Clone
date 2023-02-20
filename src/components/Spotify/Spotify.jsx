@@ -13,7 +13,7 @@ const Spotify = () => {
   const [headerBackground, setHeaderBackground] = useState(false);
   const bodyRef = useRef();
   const bodyScrolled = () => {
-    bodyRef.current.scrollTop >= 30
+    bodyRef.current.scrollTop >= 10
       ? setNavBackground(true)
       : setNavBackground(false);
     bodyRef.current.scrollTop >= 268
@@ -24,11 +24,11 @@ const Spotify = () => {
     const getUserInfo = async () => {
       const { data } = await axios.get("https://api.spotify.com/v1/me", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
       });
-      console.log({ data });
+      // console.log({ data });
       const userInfo = {
         userId: data.id,
         userUrl: data.external_urls.spotify,

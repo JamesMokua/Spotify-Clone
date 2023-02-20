@@ -8,11 +8,8 @@
   position: sticky;
   top: 0;
   transition: 0.3s ease-in-out;
-  background-color: none;
 }
-.navbar-main .active{
-    background-color: rgba(0,0,0,0.7)
-}
+
 .search-bar{
     background-color: white;
     width: 30%;
