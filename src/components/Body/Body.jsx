@@ -45,7 +45,7 @@ export default function Body({ headerBackground }) {
       dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
     };
     getInitialPlaylist();
-  }, [dispatch, selectedPlaylist]);
+  }, [dispatch, selectedPlaylist, selectedPlaylistId]);
 
   return (
     <div>
@@ -62,7 +62,7 @@ export default function Body({ headerBackground }) {
             </div>
           </div>
           <div className="list">
-            <div className="header_row" style={{backgroundColor: headerBackground ? '#000000dc' : 'none'}}>
+            <div className="header_row" style={{backgroundColor: headerBackground ? '#000000dc' : !headerBackground}}>
               <div className="col">
                 <span>#</span>
               </div>
@@ -94,7 +94,7 @@ export default function Body({ headerBackground }) {
                   index
                 ) => {
                   return (
-                    <div className="row" key={id}>
+                    <div className="rowtwo" key={id}>
                       <div className="col">
                         <span>{index + 1}</span>
                       </div>

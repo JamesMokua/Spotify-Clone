@@ -7,7 +7,7 @@ import { useStateProvider } from "../../utils/StateProvider";
 export default function Navbar({ navBackground }) {
   const [{ userInfo }] = useStateProvider();
   return (
-    <div className="navbar-main" style={{backgroundColor: navBackground ? "rgba(0,0,0,0.7)" : "none"}}>
+    <div className="navbar-main" style={{backgroundColor: navBackground ? "rgba(0,0,0,0.7)" : !navBackground}}>
       <div className="search-bar">
         <FaSearch/>
         <input type="text" placeholder="Search for Artists, Songs, or Podcasts"/>

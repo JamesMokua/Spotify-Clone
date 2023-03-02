@@ -1,4 +1,33 @@
-.footer-main{
-    background-color: #181818;
-    height: 100%;
+.footer-container {
+  background-color: #181818;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid #282828;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+.track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.track__info {
+  display: flex;
+  flex-direction: column ;
+  gap: 0.3rem;
+  
+}
+.track__name {
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;  
+  font-size: 0.8rem;
+}
+.track__artists {
+  color: #b3b3b3;
 }

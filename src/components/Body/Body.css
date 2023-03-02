@@ -3,7 +3,9 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  
 }
+
 .playlist-img {
   height: 15rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
@@ -28,6 +30,7 @@
   top: 15vh;
   padding: 1rem 3rem;
   transition: 0.3s ease-in-out;
+  
 }
 
 .tracks {
@@ -36,7 +39,7 @@
   flex-direction: column;
   margin-bottom: 5rem;
 }
-.row {
+.rowtwo {
   padding: 0.5rem 1rem;
   display: grid;
   grid-template-columns: 0.3fr 3.1fr 1.9fr 0.1fr;
