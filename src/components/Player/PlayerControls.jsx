@@ -6,13 +6,13 @@ import {
     BsShuffle,
   } from "react-icons/bs";
   import { CgPlayTrackNext, CgPlayTrackPrev } from "react-icons/cg";
-  import { FiRepeat } from "react-icons/fi";
+  import { BiRepeat } from "react-icons/bi";
   import { useStateProvider } from "../../utils/StateProvider";
   import axios from "axios";
   import { reducerCases } from "../../utils/Constraints";
 
 export default function PlayerControls() {
-    const [{ token, playerState }, dispatch] = useStateProvider();
+    const [{  playerState }, dispatch] = useStateProvider();
     const changeState = async () => {
         const state = playerState ? "pause" : "play";
         await axios.put(
@@ -82,7 +82,7 @@ export default function PlayerControls() {
         <CgPlayTrackNext onClick={() => changeTrack("next")} />
       </div>
       <div className="repeat">
-        <FiRepeat />
+        <BiRepeat />
       </div>
     </div>
   )

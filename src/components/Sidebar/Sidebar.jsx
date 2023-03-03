@@ -16,12 +16,12 @@ export default function Sidebar() {
         </div>
         <ul>
           <li>
-            <MdHomeFilled/>
+            <MdHomeFilled className='icons'/>
             <span>Home</span></li>
-          <li><MdSearch/>
+          <li><MdSearch className='icons'/>
           <span>Search</span></li>
           <li>
-            <IoLibrary/>
+            <IoLibrary className='icons'/>
             <span>Your Library</span>
             </li>
         </ul>
