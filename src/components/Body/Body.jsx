@@ -46,7 +46,63 @@ export default function Body({ headerBackground }) {
     };
     getInitialPlaylist();
   }, [dispatch, selectedPlaylist, selectedPlaylistId]);
-
+  const playTrack = async (
+    id,
+    name,
+    artists,
+    image,
+    context_uri,
+    track_number
+  ) => {
+    const response = await axios.put(
+      `https://api.spotify.com/v1/me/player/play`,
+      {
+        context_uri,
+        offset: {
+          position: track_number - 1,
+        },
+        position_ms: 0,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (response.status === 204) {
+      const currentPlaying = {
+        id,
+        name,
+        artists,
+        image,
+      };
+      dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    } else {
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    }
+    const response1 = await axios.get(
+      "https://api.spotify.com/v1/me/player/currently-playing",
+      {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (response1.data !== "") {
+      const currentlyPlaying = {
+        id: response1.data.item.id,
+        name: response1.data.item.name,
+        artists: response1.data.item.artists.map((artist) => artist.name),
+        image: response1.data.item.album.images[2].url,
+      };
+      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
+    } else {
+      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
+    }
+  };
   return (
     <div>
       {selectedPlaylist && (
@@ -94,7 +150,16 @@ export default function Body({ headerBackground }) {
                   index
                 ) => {
                   return (
-                    <div className="rowtwo" key={id}>
+                    <div className="rowtwo" key={id}  onClick={() =>
+                      playTrack(
+                        id,
+                        name,
+                        artists,
+                        image,
+                        context_uri,
+                        track_number
+                      )
+                    }>
                       <div className="col">
                         <span>{index + 1}</span>
                       </div>
