@@ -46,21 +46,21 @@ export default function PlayerControls() {
           "https://api.spotify.com/v1/me/player/currently-playing",
           {
             headers: {
-                Authorization: `Bearer ${window.localStorage.getItem("token")}`,
-                "Content-Type": "application/json",
-              },
+              Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+              "Content-Type": "application/json",
+            },
           }
         );
         if (response1.data !== "") {
-          const currentPlaying = {
+          const currentlyPlaying = {
             id: response1.data.item.id,
             name: response1.data.item.name,
             artists: response1.data.item.artists.map((artist) => artist.name),
             image: response1.data.item.album.images[2].url,
           };
-          dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+          dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
         } else {
-          dispatch({ type: reducerCases.SET_PLAYING, currentPlaying: null });
+          dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
         }
       };
   return (

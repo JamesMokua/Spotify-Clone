@@ -1,0 +1,29 @@
+.volume-container{
+display: flex;
+justify-content: flex-end;
+align-content: center;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 5rem;
+    border-radius: 2rem;
+    height: 0.3rem;
+    background: rgba(255, 255, 255, 0.6);
+    
+  }
+ input[type="range"]:focus {
+    outline: none;
+  }
+   
+  /* Input Thumb */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 50%;
+    background: #49f585;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+  }
